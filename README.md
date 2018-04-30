@@ -56,13 +56,27 @@ In the script, a few algorithms are tested. Regression algorithms such as:
 
 5) Linear Regression
 
-will be compared and contrasted by running the script, "mlassignment.R".
+can be compared and contrasted by running the script, "mlassignment.R".
 
 From the start to the section on "Extra Experiments", the codes are based on the algorithm XGBoost. 
 Following that, there is a section on Lasso Regression, H20 Deep Learning Model, H20 Gradient Boosting Machine and Linear Regression.
 
 Do note that, the algorithms can be run independently without each other as the code logic do not overlap. Hence, you can choose 
 not to run all algorithms if you wish to save time. In fact, you can test those selected algorithms that you prefer.
+
+For XGBoost:
+
+In the middle of the code, there is a portion of code which have the comments being numbered. By following the code logic, Section 1 to 4
+are being used to find the optimal parameters for training the model. Cross validation is being used here to do the hyperparameter tuning.
+
+To save time from finding the best parameters, the hyperparameters have been found and implemented in the code. This explains why
+obj_par =1.79 in section 5. 
+
+To get a better understanding of where the codes are, you can search for the following comment as one of the examples to find out where 
+the numbered-comments codes are. 
+
+Run section 4, whereby the comment is:
+"# 4) now use the learner on the training Task with the 3-fold CV to optimize your set of parameters"
 
 ## Authors
 
