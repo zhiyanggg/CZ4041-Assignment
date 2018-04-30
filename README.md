@@ -86,4 +86,4 @@ Find section 1, whereby the comment is:
 
 * **Lim Zhi Yang** 
 
-Refer to the contributors in this repository to see who participated in this project.
+Refer to the contributors in the project report to see who participated in this project.
