@@ -78,7 +78,7 @@ To get a better understanding of where the codes are, you can search for the fol
 the numbered-comments codes are. 
 
 ```
-Run section 1, whereby the comment is:
+Find section 1, whereby the comment is:
 # 1) Define the set of parameters you want to tune (here we use only 'obj_par')
 ```
 
