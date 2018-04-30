@@ -42,7 +42,7 @@ affect our proposed solution.
 
 Feel free to uncomment the code if you wish to view the comparison results.
 
-### Break down into end to end tests
+### End to end tests
 
 In the script, a few algorithms are tested. Regression algorithms such as:
 
