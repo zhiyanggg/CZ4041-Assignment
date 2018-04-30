@@ -17,6 +17,7 @@ RStudio
 ### After installing
 
 First, you will need to install the following libraries in R:
+```
 
 library(mlr)
 
@@ -33,10 +34,11 @@ library(BBmisc)
 library(Matrix)
 
 library(glmnet)
+```
 
 ## Running the tests
 
-In order to see how well our above solution fare, we will be comparing it to other regression algorithms. 
+In order to see how well our solution fare, we will be comparing it to other regression algorithms. 
 It is not mandatory to run the codes from the "Extra Experiments" section onwards as it is just for comparison purposes and will not
 affect our proposed solution. 
 
@@ -75,8 +77,10 @@ obj_par =1.79 in section 5.
 To get a better understanding of where the codes are, you can search for the following comment as one of the examples to find out where 
 the numbered-comments codes are. 
 
-Run section 4, whereby the comment is:
-"# 4) now use the learner on the training Task with the 3-fold CV to optimize your set of parameters"
+```
+Run section 1, whereby the comment is:
+# 1) Define the set of parameters you want to tune (here we use only 'obj_par')
+```
 
 ## Authors
 
