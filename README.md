@@ -19,34 +19,53 @@ RStudio
 First, you will need to install the following libraries in R:
 
 library(mlr)
-library(xgboost)
-library(data.table)
-library(parallelMap)
-library(FeatureHashing)
-library(BBmisc)
-library(Matrix)
-library(glmnet)
 
-End with an example of getting some data out of the system or using it for a little demo
+library(xgboost)
+
+library(data.table)
+
+library(parallelMap)
+
+library(FeatureHashing)
+
+library(BBmisc)
+
+library(Matrix)
+
+library(glmnet)
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+In order to see how well our above solution fare, we will be comparing it to other regression algorithms. 
+It is not mandatory to run the codes from the "Extra Experiments" section onwards as it is just for comparison purposes and will not
+affect our proposed solution. 
+
+Feel free to uncomment the code if you wish to view the comparison results.
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+In the script, a few algorithms are tested. Regression algorithms such as:
 
-```
-Give an example
-```
+1) XGBoost
+
+2) Lasso Regression
+
+3) H20 Deep Learning Model
+
+4) H20 Gradient Boosting Machine
+
+5) Linear Regression
+
+will be compared and contrasted by running the script, "mlassignment.R".
+
+From the start to the section on "Extra Experiments", the codes are based on the algorithm XGBoost. 
+Following that, there is a section on Lasso Regression, H20 Deep Learning Model, H20 Gradient Boosting Machine and Linear Regression.
+
+Do note that, the algorithms can be run independently without each other as the code logic do not overlap. Hence, you can choose 
+not to run all algorithms if you wish to save time. In fact, you can test those selected algorithms that you prefer.
 
 ## Authors
 
 * **Lim Zhi Yang** 
 
-Refer to the report for who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Refer to the contributors in this repository to see who participated in this project.
