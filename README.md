@@ -82,6 +82,25 @@ Find section 1, whereby the comment is:
 # 1) Define the set of parameters you want to tune (here we use only 'obj_par')
 ```
 
+For H20:
+
+The code below talks about the training model for H20 Gradient Boosting Model.
+
+```
+gbm_model <- h2o.gbm(features, label, training_frame = train, validation_frame = valid, ntrees=350,max_depth = 5)
+```
+
+Whereas this code below is the training model for H20 Deep Learning Model.
+
+```
+dl_model <- h2o.deeplearning(features, label, training_frame = train, validation_frame = valid, model_id="dl_model_first", 
+  #activation="Rectifier",  ## default
+  #hidden=c(200,200),       ## default: 2 hidden layers with 200 neurons each
+  epochs=50,
+  variable_importances=T    ## not enabled by default
+)
+```
+
 ## Authors
 
 * **Lim Zhi Yang** 

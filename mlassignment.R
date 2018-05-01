@@ -179,6 +179,7 @@ submission = fread("sample_submission.csv", colClasses = c("integer", "numeric")
 submission$loss = pred
 write.csv(submission, "kaggle_script.csv", row.names = FALSE)
 
+#Get MAE
 sqrt(mean((train$loss-pred1)^2))
 mean(abs(train$loss-pred1))
 # =======================================================
@@ -222,4 +223,65 @@ mean(abs(train$loss-pred1))
 # pred <- exp(predict(linmod,x.train))-200
 # submission <- data.frame(id=test$id,loss=pred[,1])
 # write.table(submission,file="submission.csv",sep=",",row.names=FALSE)
+
+# =======================================================
+#             H2O GBM and DEEP LEARNING MODEL
+# =======================================================
+
+# # Load libraries
+# library(h2o)
+# h2o.init(nthreads = 12)
 # 
+# # Read input data
+# print("loading data")
+# train <- h2o.importFile("../input/train.csv", destination_frame = "train.hex")
+# test <- h2o.importFile("../input/test.csv", destination_frame = "test.hex")
+# print("loading data - DONE")
+# 
+# print("splitting data")
+# train <- train[, -1]
+# train$loss <- log1p(train$loss)
+# splits <- h2o.splitFrame(
+#   data = train, 
+#   ratios = c(0.8),
+#   destination_frames = c("train.hex", "valid.hex"), seed = 1111
+# )
+# train <- splits[[1]]
+# valid <- splits[[2]]
+# print("splitting data - DONE")
+# 
+# submission <- test[, 1]
+# test <- test[, -1]
+# 
+# features <- colnames(train)[-131]
+# label <- "loss"
+# 
+# hyper_params = list( max_depth = seq(1,29,2) )
+# print("train gbm")
+# gbm_model <- h2o.gbm(features, label, training_frame = train, validation_frame = valid, ntrees=350,max_depth = 5)
+# print("train gbm - DONE")
+# 
+# print("train deeplearning")
+# dl_model <- h2o.deeplearning(features, label, training_frame = train, validation_frame = valid, model_id="dl_model_first", 
+#                              #activation="Rectifier",  ## default
+#                              #hidden=c(200,200),       ## default: 2 hidden layers with 200 neurons each
+#                              epochs=50,
+#                              variable_importances=T    ## not enabled by default
+# )
+# 
+# print("train deeplearning - DONE")
+# 
+# print(h2o.mse(h2o.performance(gbm_model, valid = TRUE)))
+# print(h2o.mse(h2o.performance(dl_model, valid = TRUE)))
+# 
+# submission$loss <- predict(gbm_model, newdata = test)
+# 
+# submission$loss <- expm1(submission$loss)
+# 
+# h2o.downloadCSV(submission, filename = "submission_h2o_gbm.csv")
+# 
+# submission$loss <- predict(dl_model, newdata = test)
+# 
+# submission$loss <- expm1(submission$loss)
+# 
+# h2o.downloadCSV(submission, filename = "submission_h2o_dl.csv")
